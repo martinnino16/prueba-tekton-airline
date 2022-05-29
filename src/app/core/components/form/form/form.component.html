@@ -8,4 +8,11 @@
       <option *ngFor="let opt of controls.options " [value]="opt.key">{{opt.value}}</option>
     </select>
   </div>
+
+  <div *ngIf="!isValid" class="text text-danger" role="alert">
+    <strong>{{controls.label}} No es Valido</strong>
+  </div>
+  <div *ngIf="isValid" class="text text-success">
+    <strong>Campo Valido</strong>
+  </div>
 </div>

@@ -17,6 +17,14 @@ export class RegistroPasajerosComponent {
   public pasajeros: Pasajero[] = [];
   public maxPasajeros: number = 3;
 
+  public swalWithBootstrapButtons = Swal.mixin({
+    customClass: {
+      confirmButton: 'btn btn-success mr-2',
+      cancelButton: 'btn btn-danger'
+    },
+    buttonsStyling: false
+  })
+
   
 
   constructor(
@@ -27,17 +35,11 @@ export class RegistroPasajerosComponent {
   }
 
   async registrarPasajero  (pasajero: Pasajero): Promise<void> {
-    const swalWithBootstrapButtons = Swal.mixin({
-      customClass: {
-        confirmButton: 'btn btn-success mr-2',
-        cancelButton: 'btn btn-danger'
-      },
-      buttonsStyling: false
-    })
+   
     this.pasajeros = [...this.pasajeros, pasajero];
 
     if(this.maxPasajeros > 0) {
-      await swalWithBootstrapButtons.fire({
+      await this.swalWithBootstrapButtons.fire({
         title: 'Deseas registrar un pasajero mas?',
         text: "es posible registrar un pasajero mas!",
         icon: 'warning',
@@ -48,7 +50,7 @@ export class RegistroPasajerosComponent {
       }).then( (result) => {
         if (result.isConfirmed) {
           if(this.maxPasajeros > 0) {
-            swalWithBootstrapButtons.fire(
+            this.swalWithBootstrapButtons.fire(
               'Agrega un pasajero mas!',
               `puedes agregar hasta ${this.maxPasajeros} pasajeros mas.`,
               'success'
@@ -71,17 +73,9 @@ export class RegistroPasajerosComponent {
   public registroExitoso = async (pasajeros: Pasajero | Pasajero[]): Promise<void> => {
 
 
-    const swalWithBootstrapButtons = Swal.mixin({
-      customClass: {
-        confirmButton: 'btn btn-success mr-2',
-        cancelButton: 'btn btn-danger'
-      },
-      buttonsStyling: false
-    })
-
     if(Array.isArray(pasajeros)) {
       for (const pasajero of pasajeros) {
-        await swalWithBootstrapButtons.fire(
+        await this.swalWithBootstrapButtons.fire(
           'Se registraron los siguientes pasajeros:',
           `${pasajero.nombrePasajero} ${pasajero.apellidosPasajero}`,
           'success'
@@ -90,7 +84,7 @@ export class RegistroPasajerosComponent {
       this.pasajerosServices.enviarPasajeros(pasajeros);
       this.router.navigate(['/listar-pasajeros']);
     } else {
-        await swalWithBootstrapButtons.fire(
+        await this.swalWithBootstrapButtons.fire(
           'Se registraron los siguientes pasajeros:',
           `${pasajeros.nombrePasajero} ${pasajeros.apellidosPasajero}`,
           'success'

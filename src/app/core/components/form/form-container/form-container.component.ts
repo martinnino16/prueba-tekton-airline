@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, DoCheck, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Pasajero } from 'src/app/feature/pasajeros/shared/models/pasajero';
 import { ControlBase } from '../shared/modelos/control-base';
@@ -21,9 +21,11 @@ export class FormContainerComponent implements OnInit {
     this.form = this.formService.createFormGroup(this.controls);
   }
 
+  
+
   onSubmit() {
     this.formValue.emit(this.form.value);
-    this.form.reset();
+    
   }
 
 }

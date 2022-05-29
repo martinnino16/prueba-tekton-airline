@@ -13,7 +13,7 @@ export class FormComponent {
   @Input() form!: FormGroup;
 
   get isValid() {
-    return this.form.controls[this.controls.key].valid;
+    return this.form.controls[this.controls.key]?.valid;
   }
 
 }

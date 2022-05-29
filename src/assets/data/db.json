@@ -522,6 +522,15 @@
         "tipoDocumentoPasajero": "dni",
         "numeroDocumentoPasajero": "2"
       }
+    ],
+    [
+      {
+        "nombrePasajero": "Daniela",
+        "apellidosPasajero": "Pineda",
+        "nacionalidadPasajero": "Colombiana",
+        "tipoDocumentoPasajero": "dni",
+        "numeroDocumentoPasajero": "12121231"
+      }
     ]
   ]
 }
