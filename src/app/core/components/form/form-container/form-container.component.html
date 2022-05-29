@@ -1,0 +1,11 @@
+<div>
+    <form (ngSubmit)="onSubmit()" [formGroup]="form">
+        <div *ngFor="let control of controls">
+            <app-form [controls]="control" [form]="form"></app-form>
+          </div>
+      
+          <div class="d-grid gap-2 col-6 mx-auto mt-3 contenedor-button">
+            <button type="submit" class="btn btn-primary" ngClass="{disabled ? 'disabled' : ''}" [disabled]="!form.valid">Guardar</button>
+          </div>
+    </form>
+</div>

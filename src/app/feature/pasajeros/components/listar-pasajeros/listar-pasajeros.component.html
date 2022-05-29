@@ -1,0 +1,45 @@
+
+<div class="container my-5">
+    <div class="row">
+        <div class="col-12">
+            <table class="table">
+                <thead>
+                    <tr class="text-center" >
+                        <th>Nombre </th>
+                        <th>Apellido </th>
+                        <th>Nacionalidad </th>
+                        <th>Tipo Documento </th>
+                        <th>Numero Documento </th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="text-center" *ngFor="let pasajero of pasajeros">
+                        <td>{{pasajero.nombrePasajero}}</td>
+                        <td>{{pasajero.apellidosPasajero}}</td>
+                        <td>{{pasajero.nacionalidadPasajero}}</td>
+                        <td>{{pasajero.tipoDocumentoPasajero}}</td>
+                        <td>{{pasajero.numeroDocumentoPasajero}}</td>
+                        
+                        <td class="text-center">
+                            <button class="btn btn-danger" (click)="eliminarPasajero(pasajero.numeroDocumentoPasajero)">
+                                <i class="bi-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div>
+                <button class="btn btn-primary" (click)="agregarPasajero()">
+                    <i class="bi-plus"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <app-form-container *ngIf="isVisible" [controls]="controlsPasajero | async" (formValue)="registrarPasajero($event)"></app-form-container>
+        </div>
+    </div>
+</div>
