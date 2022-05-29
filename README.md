@@ -25,3 +25,15 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Descripción del proyecto:
+
+Este proyecto se hace con la finalidad de realizar el proceso con la compañia tekton:
+
+El proyecto esta bajo la arquitectura recomendada por Angular la cual es core/shared/module.
+
+Para el manejor de la persistencia se instalo una pequeña libreria llamada json-server la cual monta un backend basado en un archivo json.
+
+Run `npm run json-server` y así poder persistir los datos.
+
+Se realizaron test unitarios y de integración a algunos componentes del proyecto.
